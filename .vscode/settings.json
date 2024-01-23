@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/schemas/projmgr/2.1.0/tools/projmgr/schemas/csolution.schema.json": "file:///c%3A/Users/cinnamon/Documents/cmsis-stm32/mySolution.csolution.yaml"
+    }
+}

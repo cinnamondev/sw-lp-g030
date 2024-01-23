@@ -1,0 +1,67 @@
+project:
+  packs:
+    - pack: Keil::STM32F4xx_DFP
+    - pack: Keil::STM32NUCLEO_BSP
+    - pack: Keil::MDK-Middleware
+    - pack: Keil::MDK-Middleware_Graphics
+    - pack: ARM::CMSIS@5.9.0
+    - pack: GorgonMeducer::perf_counter@2.2.3
+  setups:
+    - setup: Options for STM32F401RE
+      processor:
+        trustzone: non-secure
+      debug: "on"
+      misc:
+        - C:
+            - -std=gnu99
+          C-CPP:
+            - -fno-rtti
+            - -funsigned-char
+            - -fshort-enums
+            - -fshort-wchar
+            - -ffunction-sections
+            - -Weverything
+            - -Wno-packed
+            - -Wno-reserved-id-macro
+            - -Wno-unused-macros
+            - -Wno-documentation-unknown-command
+            - -Wno-documentation
+            - -Wno-license-management
+            - -Wno-parentheses-equality
+          CPP:
+            - -xc++
+            - -std=c++98
+          ASM:
+            - -masm=auto
+          Link:
+            - --map
+            - --load_addr_map_info
+            - --xref
+            - --callgraph
+            - --symbols
+            - --info sizes
+            - --info totals
+            - --info unused
+            - --info veneers
+            - --list
+            - --strict
+            - --summary_stderr
+            - --info summarysizes
+  linker:
+    - script: STM32F401RE.sct
+  components:
+    - component: Keil::Board Support&NUCLEO-F401RE:Buttons
+    - component: Keil::Board Support&NUCLEO-F401RE:LED
+    - component: Keil::Device:STM32Cube Framework:Classic
+    - component: Keil::Device:Startup
+    - component: ARM::CMSIS:CORE@5.6.0
+    - component: Keil::Device:STM32Cube HAL:Common@1.8.1
+    - component: Keil::Device:STM32Cube HAL:Cortex@1.8.1
+    - component: Keil::Device:STM32Cube HAL:RCC@1.8.1
+    - component: Keil::Device:STM32Cube HAL:PWR@1.8.1
+    - component: Keil::Device:STM32Cube HAL:GPIO@1.8.1
+    - component: GorgonMeducer::Utilities:perf_counter:Core&Library@2.2.3
+  groups:
+    - group: Source
+      files:
+        - file: ./src/main.c

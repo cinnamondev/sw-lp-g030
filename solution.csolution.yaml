@@ -1,0 +1,20 @@
+solution:
+  compiler: AC6
+  target-types:
+    - type: DevBoard
+      device: STM32F401RETx
+      optimize: none
+  build-types:
+    - type: Debug
+      optimize: none
+      debug: on
+      define:
+        - DEBUG
+
+    - type: Release
+      optimize: balanced
+      debug: off
+      define:
+        - RELEASE
+  projects:
+    - project: project.cproject.yaml
