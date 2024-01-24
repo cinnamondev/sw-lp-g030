@@ -1,13 +1,6 @@
 project:
-  packs:
-    - pack: Keil::STM32F4xx_DFP
-    - pack: Keil::STM32NUCLEO_BSP
-    - pack: Keil::MDK-Middleware
-    - pack: Keil::MDK-Middleware_Graphics
-    - pack: ARM::CMSIS@5.9.0
-    - pack: GorgonMeducer::perf_counter@2.2.3
   setups:
-    - setup: Options for STM32F401RE
+    - setup: Options for STM32G033F6P6
       processor:
         trustzone: non-secure
       debug: "on"
@@ -47,21 +40,32 @@ project:
             - --strict
             - --summary_stderr
             - --info summarysizes
-  linker:
-    - script: STM32F401RE.sct
-  components:
-    - component: Keil::Board Support&NUCLEO-F401RE:Buttons
-    - component: Keil::Board Support&NUCLEO-F401RE:LED
-    - component: Keil::Device:STM32Cube Framework:Classic
-    - component: Keil::Device:Startup
-    - component: ARM::CMSIS:CORE@5.6.0
-    - component: Keil::Device:STM32Cube HAL:Common@1.8.1
-    - component: Keil::Device:STM32Cube HAL:Cortex@1.8.1
-    - component: Keil::Device:STM32Cube HAL:RCC@1.8.1
-    - component: Keil::Device:STM32Cube HAL:PWR@1.8.1
-    - component: Keil::Device:STM32Cube HAL:GPIO@1.8.1
-    - component: GorgonMeducer::Utilities:perf_counter:Core&Library@2.2.3
   groups:
     - group: Source
       files:
         - file: ./src/main.c
+  components:
+    - component: Keil::Device:STM32Cube HAL:ADC@1.4.2
+    - component: Keil::Device:STM32Cube HAL:Common@1.4.2
+    - component: Keil::Device:STM32Cube HAL:Cortex@1.4.2
+    - component: Keil::Device:STM32Cube HAL:CRC@1.4.2
+    - component: Keil::Device:STM32Cube HAL:DMA@1.4.2
+    - component: Keil::Device:STM32Cube HAL:EXTI@1.4.2
+    - component: Keil::Device:STM32Cube HAL:Flash@1.4.2
+    - component: Keil::Device:STM32Cube HAL:GPIO@1.4.2
+    - component: Keil::Device:STM32Cube HAL:I2C@1.4.2
+    - component: Keil::Device:STM32Cube HAL:IWDG@1.4.2
+    - component: Keil::Device:STM32Cube HAL:RCC@1.4.2
+
+    - component: Keil::Device:STM32Cube HAL:TIM@1.4.2
+    - component: Keil::Device:STM32Cube HAL:LPTIM@1.4.2
+    - component: Keil::Device:STM32Cube HAL:PWR@1.4.2
+    - component: Keil::Device:STM32Cube HAL:RNG@1.4.2
+
+    - component: ARM::CMSIS:CORE@6.0.0
+    - component: Keil::Device:STM32Cube Framework:STM32CubeMX@1.1.0
+    - component: Keil::Device:Startup@1.4.0
+
+  packs:
+    - pack: Keil::STM32G0xx_DFP@1.4.0
+    - pack: ARM::CMSIS@6.0.0

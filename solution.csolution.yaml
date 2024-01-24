@@ -1,9 +1,17 @@
 solution:
   compiler: AC6
+  packs:
+    - pack: ARM::CMSIS@5.9.0
+    - pack: Keil::STM32G0xx_DFP
   target-types:
-    - type: DevBoard
+    - type: SensorModule
+      device: STM32G030F6Px
+      define:
+        - BOARD_G030_MODULE
+    - type: NucleoExperimental
       device: STM32F401RETx
-      optimize: none
+      define:
+        - BOARD_F401_TESTINGMODE
   build-types:
     - type: Debug
       optimize: none
@@ -17,4 +25,4 @@ solution:
       define:
         - RELEASE
   projects:
-    - project: project.cproject.yaml
+    - project: lineProcessor.cproject.yaml
