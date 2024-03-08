@@ -1,11 +1,23 @@
+/* USER CODE BEGIN Header */
 /**
- * @file main.c
- * @author Embedded Systems Group 30
- * @brief Main Program Body - Line Processor Program
- * @version 0.1-indev
- * @date 2024-01-24
- * 
- */
+  ******************************************************************************
+  * @file           : main.h
+  * @brief          : Header for main.c file.
+  *                   This file contains the common defines of the application.
+  ******************************************************************************
+  * @attention
+  *
+  * <h2><center>&copy; Copyright (c) 2024 STMicroelectronics.
+  * All rights reserved.</center></h2>
+  *
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __MAIN_H
@@ -19,20 +31,73 @@ extern "C" {
 #include "stm32g0xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
+/* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
+/* USER CODE BEGIN ET */
+
+/* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
+/* USER CODE BEGIN EC */
+
+/* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
+/* USER CODE BEGIN EM */
+#define SENSOR(n) (struct tcrt_channel) {\
+  .adc_port = S## n ##_GPIO_Port, \
+  .adc_pin = S ## n ## _Pin, \
+  .en_port = S ## n ## E_GPIO_Port, \
+  .en_pin = S ## n ## E_Pin, \
+} \
+
+/* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
 /* Private defines -----------------------------------------------------------*/
+#define S6E_Pin GPIO_PIN_14
+#define S6E_GPIO_Port GPIOC
+#define S5E_Pin GPIO_PIN_15
+#define S5E_GPIO_Port GPIOC
+#define S4E_Pin GPIO_PIN_0
+#define S4E_GPIO_Port GPIOA
+#define S3E_Pin GPIO_PIN_1
+#define S3E_GPIO_Port GPIOA
+#define S2E_Pin GPIO_PIN_2
+#define S2E_GPIO_Port GPIOA
+#define S1E_Pin GPIO_PIN_3
+#define S1E_GPIO_Port GPIOA
+#define INTX_Pin GPIO_PIN_4
+#define INTX_GPIO_Port GPIOA
+#define S3_Pin GPIO_PIN_5
+#define S3_GPIO_Port GPIOA
+#define S2_Pin GPIO_PIN_6
+#define S2_GPIO_Port GPIOA
+#define S1_Pin GPIO_PIN_7
+#define S1_GPIO_Port GPIOA
+#define S6_Pin GPIO_PIN_1
+#define S6_GPIO_Port GPIOB
+#define S5_Pin GPIO_PIN_11
+#define S5_GPIO_Port GPIOA
+#define S4_Pin GPIO_PIN_12
+#define S4_GPIO_Port GPIOA
+/* USER CODE BEGIN Private defines */
+
+/* USER CODE END Private defines */
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif /* __MAIN_H */
+
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
