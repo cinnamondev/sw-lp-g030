@@ -2,16 +2,13 @@ solution:
   compiler: AC6
   packs:
     - pack: ARM::CMSIS@5.9.0
+    - pack: ARM::CMSIS-DSP@1.15.0
     - pack: Keil::STM32G0xx_DFP
   target-types:
     - type: SensorModule
       device: STM32G030F6Px
       define:
-        - BOARD_G030_MODULE
-    - type: NucleoExperimental
-      device: STM32F401RETx
-      define:
-        - BOARD_F401_TESTINGMODE
+        - G030_MODULE
   build-types:
     - type: Debug
       optimize: none
