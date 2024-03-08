@@ -36,6 +36,8 @@
 *.cbuild.yml
 *.cprj
 *.cbuild-idx.yml
+*.cbuild-pack.yml
+*.cbuild-set.yml
 tmp/*
 out/*
 RTE/*
