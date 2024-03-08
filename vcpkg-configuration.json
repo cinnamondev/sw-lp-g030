@@ -20,7 +20,8 @@
     "microsoft:tools/kitware/cmake": "^3.25.2",
     "microsoft:tools/ninja-build/ninja": "^1.10.2",
     "arm:compilers/arm/armclang": "^6.20.0",
-    "arm:tools/open-cmsis-pack/ctools": "^1.5.0"
+    "arm:tools/open-cmsis-pack/cmsis-toolbox": "^2.2.1",
+    "microsoft:tools/microsoft/openocd": "^0.12.0"
   }
 }
 

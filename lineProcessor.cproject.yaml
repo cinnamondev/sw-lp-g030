@@ -1,6 +1,6 @@
 project:
   setups:
-    - setup: Options for STM32G033F6P6
+    - setup: Options
       processor:
         trustzone: non-secure
       debug: "on"

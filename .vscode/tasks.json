@@ -11,8 +11,15 @@
         },
         {
             "type": "shell",
-            "command": "openocd -f ./openocd.cfg -c “init ; reset halt ; stm32f4x.cpu arp_reset assert 0 ; exit”",
+            "command": "openocd -f interface/cmsis-dap.cfg -f ./openocd.cfg -c “init ; reset halt ; stm32g0x.cpu arp_reset assert 0 ; exit”",
             "label": "Reset uC",
-        }
+            "dependsOn": [ "environment-bootstrap" ]
+        },
+        {
+            "type": "shell",
+            "dependsOn": ["environment-bootstrap"],
+            "command": "openocd -f interface/cmsis-dap.cfg -f ./openocd.cfg -c “program ./out/lineProcessor/SensorModule/Debug/lineProcessor.axf verify reset exit”",
+            "label": "cmsisstm32 program",
+        },
     ]
 }
