@@ -42,4 +42,4 @@ RTE/*
 
 # repo specific
 .clangd
-./docs/*
+docs/*
