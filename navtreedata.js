@@ -31,7 +31,8 @@ var NAVTREE =
         [ "Building", "index.html#autotoc_md5", null ],
         [ "Using Open-CMSIS-Pack csolutions: VSCode", "index.html#autotoc_md6", null ],
         [ "Code styling", "index.html#autotoc_md7", null ]
-      ] ]
+      ] ],
+      [ "PCB Schematic", "index.html#autotoc_md8", null ]
     ] ],
     [ "Scan pattern design", "md_src_line_sensor_README.html", [
       [ "Portability", "md_src_line_sensor_README.html#autotoc_md1", null ]
