@@ -2,6 +2,7 @@ var main_8h =
 [
     [ "INTX_GPIO_Port", "main_8h.html#ac0815637711b9ed2a66d31e3d7c51dd0", null ],
     [ "INTX_Pin", "main_8h.html#a018f0dc18ebda599e496e397e38a986a", null ],
+    [ "S", "main_8h.html#a59a0fd8f55d58b92e2d7c747ce809b1a", null ],
     [ "S1_GPIO_Port", "main_8h.html#a6fc2de341d95d6654c93f5985c5cd64c", null ],
     [ "S1_Pin", "main_8h.html#a44d5322bef84d5b73de0fc7ef87df39d", null ],
     [ "S1E_GPIO_Port", "main_8h.html#a51020ba4de1ae6112ce7409c17a5899b", null ],
@@ -26,6 +27,6 @@ var main_8h =
     [ "S6_Pin", "main_8h.html#ad91870cb05cdfc1a3675bd1d42c8afd8", null ],
     [ "S6E_GPIO_Port", "main_8h.html#a4205be6fb4a4f1a60eca7d5f62dcf33f", null ],
     [ "S6E_Pin", "main_8h.html#a305cc8bd2d4cd16ebda19759a5e06f43", null ],
-    [ "SENSOR", "main_8h.html#ad5ccc07618aa16960e9cf343dce0bcbd", null ],
+    [ "TARGET_LSA_21A_ORDER", "main_8h.html#aa6ebef6507b0d100ea7967d2c52cb0c4", null ],
     [ "Error_Handler", "main_8h.html#a1730ffe1e560465665eb47d9264826f9", null ]
 ];

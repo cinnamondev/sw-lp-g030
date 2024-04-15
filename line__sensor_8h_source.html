@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Line Sensor Module: src/line_sensor/line_sensor.h Source File</title>
+<title>Line Sensor Firmware: src/line_sensor/line_sensor.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -17,8 +17,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,10 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="little_tikes.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Line Sensor Module
+   <div id="projectname">Line Sensor Firmware
    </div>
-   <div id="projectbrief">ESP30 Sensor Array Firmware</div>
+   <div id="projectbrief">ESProject Group 30</div>
   </td>
  </tr>
  </tbody>
@@ -92,12 +91,44 @@ $(document).ready(function(){initNavTree('line__sensor_8h_source.html',''); init
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef __LINE_SENSOR_ADC_H</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define __LINE_SENSOR_ADC_H</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;line_sensor_adc.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="line__sensor__i2c_8h.html">line_sensor_i2c.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;tcrt5000.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aline__sensor__i2c_8h_html"><div class="ttname"><a href="line__sensor__i2c_8h.html">line_sensor_i2c.h</a></div></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;i2c.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;stm32g0xx_hal_adc.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;stm32g0xx_hal_i2c.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;tcrt5000.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#ifndef LINE_SENSOR_N</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define LINE_SENSOR_N 6</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="line__sensor_8h.html#aea2587a9e26b7c55ec488b6fe5963318">   26</a></span>&#160;<span class="preprocessor">#define LINE_SENSOR(_hi2c, _hadc, ...) (struct line_sensor) {\</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">  .tcrt = { __VA_ARGS__ },\</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">  .hi2c = _hi2c,\</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">  .hadc = _hadc,\</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">}\</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span> </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structline__sensor.html">   36</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structline__sensor.html">line_sensor</a> {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">struct </span><a class="code" href="structtcrt__channel.html">tcrt_channel</a> tcrt[LINE_SENSOR_N];</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">float</span>   </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structline__sensor.html#abd991fae2f7e39a1c48d1664e7922ad2">   44</a></span>&#160;    uint32_t <a class="code" href="structline__sensor.html#abd991fae2f7e39a1c48d1664e7922ad2">buff</a>[LINE_SENSOR_N];</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    uint32_t buff_1[LINE_SENSOR_N];</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    uint32_t buff_2[LINE_SENSOR_N]</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    uint32_t* activeBuffer;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structline__sensor.html#a9e4be870e2d6f5224730ef8cd64aa711">   49</a></span>&#160;    I2C_TypeDef* <a class="code" href="structline__sensor.html#a9e4be870e2d6f5224730ef8cd64aa711">hi2c</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="structline__sensor.html#abf011047d1f78e490e18a26d7dcd40fe">   51</a></span>&#160;    ADC_TypeDef* <a class="code" href="structline__sensor.html#abf011047d1f78e490e18a26d7dcd40fe">hadc</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structline__sensor.html#a0f6bd09958d8646d87aff97d10603289">   53</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structline__sensor.html#a0f6bd09958d8646d87aff97d10603289">pos</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span> ls_start(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">void</span> ls_stop(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="astructline__sensor_html"><div class="ttname"><a href="structline__sensor.html">line_sensor</a></div><div class="ttdoc">Line Sensor Module IO Ports, Interfaces &amp; Outputs.</div><div class="ttdef"><b>Definition:</b> line_sensor.h:36</div></div>
+<div class="ttc" id="astructline__sensor_html_a0f6bd09958d8646d87aff97d10603289"><div class="ttname"><a href="structline__sensor.html#a0f6bd09958d8646d87aff97d10603289">line_sensor::pos</a></div><div class="ttdeci">float pos</div><div class="ttdef"><b>Definition:</b> line_sensor.h:53</div></div>
+<div class="ttc" id="astructline__sensor_html_a9e4be870e2d6f5224730ef8cd64aa711"><div class="ttname"><a href="structline__sensor.html#a9e4be870e2d6f5224730ef8cd64aa711">line_sensor::hi2c</a></div><div class="ttdeci">I2C_TypeDef * hi2c</div><div class="ttdef"><b>Definition:</b> line_sensor.h:49</div></div>
+<div class="ttc" id="astructline__sensor_html_abd991fae2f7e39a1c48d1664e7922ad2"><div class="ttname"><a href="structline__sensor.html#abd991fae2f7e39a1c48d1664e7922ad2">line_sensor::buff</a></div><div class="ttdeci">float uint32_t buff[LINE_SENSOR_N]</div><div class="ttdef"><b>Definition:</b> line_sensor.h:44</div></div>
+<div class="ttc" id="astructline__sensor_html_abf011047d1f78e490e18a26d7dcd40fe"><div class="ttname"><a href="structline__sensor.html#abf011047d1f78e490e18a26d7dcd40fe">line_sensor::hadc</a></div><div class="ttdeci">ADC_TypeDef * hadc</div><div class="ttdef"><b>Definition:</b> line_sensor.h:51</div></div>
+<div class="ttc" id="astructtcrt__channel_html"><div class="ttname"><a href="structtcrt__channel.html">tcrt_channel</a></div><div class="ttdoc">Generic TCRT5000 GPIO interface.</div><div class="ttdef"><b>Definition:</b> tcrt5000.h:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -24,31 +24,41 @@
 */
 var NAVTREE =
 [
-  [ "Line Sensor Module", "index.html", [
+  [ "Line Sensor Firmware", "index.html", [
     [ "sw-lp-g030", "index.html", [
-      [ "Development", "index.html#autotoc_md1", [
-        [ "Building", "index.html#autotoc_md2", null ],
-        [ "Using Open-CMSIS-Pack csolutions: VSCode", "index.html#autotoc_md3", null ],
-        [ "Code styling", "index.html#autotoc_md4", null ]
+      [ "Development", "index.html#autotoc_md3", [
+        [ "Dependencies", "index.html#autotoc_md4", null ],
+        [ "Building", "index.html#autotoc_md5", null ],
+        [ "Using Open-CMSIS-Pack csolutions: VSCode", "index.html#autotoc_md6", null ],
+        [ "Code styling", "index.html#autotoc_md7", null ]
       ] ]
+    ] ],
+    [ "Scan pattern design", "md_src_line_sensor_README.html", [
+      [ "Portability", "md_src_line_sensor_README.html#autotoc_md1", null ]
     ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
-      [ "Data Structure Index", "classes.html", null ]
+      [ "Data Structure Index", "classes.html", null ],
+      [ "Data Fields", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ]
+        [ "Functions", "globals_func.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"Reccomended-example.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['error_5fhandler_0',['Error_Handler',['../main_8c.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c'],['../main_8h.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c']]]
+  ['buff_0',['buff',['../structline__sensor.html#abd991fae2f7e39a1c48d1664e7922ad2',1,'line_sensor']]]
 ];
