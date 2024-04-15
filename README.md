@@ -38,3 +38,9 @@ as they are configured for debuggers other than a CMSIS-DAP.
 ### Code styling
 
 Code style is enforced by Clang-Format ([LLVM Style](https://llvm.org/docs/CodingStandards.html#header-guard)). All contributed code should follow this style.
+
+## PCB Schematic
+
+See below for schematic:
+
+\image{inline} html schematic.jpg height=712px
