@@ -6,24 +6,20 @@ project:
       debug: "on"
       misc:
         - C:
-            - -std=gnu99
+            - -std=gnu11
           C-CPP:
             - -fno-rtti
             - -funsigned-char
             - -fshort-enums
             - -fshort-wchar
             - -ffunction-sections
-            - -Weverything
             - -Wno-packed
             - -Wno-reserved-id-macro
             - -Wno-unused-macros
             - -Wno-documentation-unknown-command
             - -Wno-documentation
             - -Wno-license-management
-            - -Wno-parentheses-equality
-          CPP:
-            - -xc++
-            - -std=c++98
+            - -Wno-unsafe-buffer-usage
           ASM:
             - -masm=auto
           Link:

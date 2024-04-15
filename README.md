@@ -4,18 +4,29 @@ Software for the STM32G030F6P6 on-board the Line Sensor Module.
 
 ## Development
 
+### Dependencies
+
+- Windows/Linux/Other compatible environment (can run vcpkg)
+- Alternatively:
+  - arm-none-eabi-gcc OR armclang (arm compiler 6)
+  - ninja
+  - cmsis toolbox
+  - cmake
+  - openOCD
+  - 
 ### Building
 
-Development Dependencies
-- Internet connection
-- Powershell (optional, required if using provided VSCode configurations) (if on Windows, packaged version is fine).
+Building has been tested via the vcpkg environment and vscode configurations.
 
-All other dependencies will be pulled OTA via vcpkg (for build dependences), which will install cmsis toolbox (which will be able to download and install [KEIL CMSIS-Packs](https://www.keil.arm.com/packs/) for BSP).
+If you have an internet connection and can use vcpkg, vcpkg will pull in all the relevant build dependencies for you. This is much preferred because C/C++ tooling is a terrible rabbit hole.
 
-Use Open-CMSIS-Pack tools.
-Uses STM32 BSP
+CMSIS-Packs are an easy way to obtain major dependencies (i.e. arm math libraries, lvgl, bsp packages, etc, which will be able to download and install [KEIL CMSIS-Packs](https://www.keil.arm.com/packs/)).
+
+Requires STM32Cube CMSIS-Pack for G030 target.
 
 ### Using Open-CMSIS-Pack csolutions: VSCode
+
+*Useful for group members* 
 
 As Keil Studio / Mbed Studio are both based (indirectly) off FOSS Code, there is a suite of extensions available for CMSIS csolution projects.
 

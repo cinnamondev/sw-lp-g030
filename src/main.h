@@ -47,13 +47,14 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-#define SENSOR(n) (struct tcrt_channel) {\
+#define S(n) (struct tcrt_channel) {\
   .adc_port = S## n ##_GPIO_Port, \
   .adc_pin = S ## n ## _Pin, \
   .en_port = S ## n ## E_GPIO_Port, \
   .en_pin = S ## n ## E_Pin, \
 } \
 
+#define TARGET_LSA_21A_ORDER S(3),S(2),S(1),S(6),S(5),S(4)
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
