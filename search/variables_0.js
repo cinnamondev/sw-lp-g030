@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['buff_75',['buff',['../structline__sensor.html#abd991fae2f7e39a1c48d1664e7922ad2',1,'line_sensor']]]
+  ['buff_78',['buff',['../structline__sensor.html#a25c5082a6437b454a2cf0e087cb21bcb',1,'line_sensor']]]
 ];

@@ -115,12 +115,27 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a7090f92b8364e7855c3d9e72c7008c3a"><td class="memItemLeft" align="right" valign="top"><a id="a7090f92b8364e7855c3d9e72c7008c3a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ls_init</b> (struct <a class="el" href="structline__sensor.html">line_sensor</a> *, ADC_HandleTypeDef *)</td></tr>
+<tr class="separator:a7090f92b8364e7855c3d9e72c7008c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a309d69e72d03bdbc88d7654481ff242c"><td class="memItemLeft" align="right" valign="top"><a id="a309d69e72d03bdbc88d7654481ff242c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ls_start</b> (void)</td></tr>
 <tr class="separator:a309d69e72d03bdbc88d7654481ff242c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66dfddf50f08ce12bbcdca78f3d9ef00"><td class="memItemLeft" align="right" valign="top"><a id="a66dfddf50f08ce12bbcdca78f3d9ef00"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ls_stop</b> (void)</td></tr>
 <tr class="separator:a66dfddf50f08ce12bbcdca78f3d9ef00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaa1228d35d082a13cdcd3d25586edec"><td class="memItemLeft" align="right" valign="top"><a id="afaa1228d35d082a13cdcd3d25586edec"></a>
+_Bool&#160;</td><td class="memItemRight" valign="bottom"><b>ls_ready_to_process</b> (void)</td></tr>
+<tr class="separator:afaa1228d35d082a13cdcd3d25586edec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a939c20f94f6864ce1af0a8bc0cce4596"><td class="memItemLeft" align="right" valign="top"><a id="a939c20f94f6864ce1af0a8bc0cce4596"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ls_resume</b> (void)</td></tr>
+<tr class="separator:a939c20f94f6864ce1af0a8bc0cce4596"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85a123185c9bcad9229b17b05c5065e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="line__sensor_8h.html#a85a123185c9bcad9229b17b05c5065e6">HAL_ADC_ConvCpltCallback</a> (ADC_HandleTypeDef *)</td></tr>
+<tr class="memdesc:a85a123185c9bcad9229b17b05c5065e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback executes on end of sampling.  <a href="line__sensor_8h.html#a85a123185c9bcad9229b17b05c5065e6">More...</a><br /></td></tr>
+<tr class="separator:a85a123185c9bcad9229b17b05c5065e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dd49835b7027f3f82cd428ab1a2ee68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="line__sensor_8h.html#a3dd49835b7027f3f82cd428ab1a2ee68">HAL_ADC_ConvHalfCpltCallback</a> (ADC_HandleTypeDef *)</td></tr>
+<tr class="memdesc:a3dd49835b7027f3f82cd428ab1a2ee68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback executes on half complete transfer.  <a href="line__sensor_8h.html#a3dd49835b7027f3f82cd428ab1a2ee68">More...</a><br /></td></tr>
+<tr class="separator:a3dd49835b7027f3f82cd428ab1a2ee68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>your name (<a href="#" onclick="location.href='mai'+'lto:'+'you'+'@d'+'oma'+'in'+'.co'+'m'; return false;">you@d<span style="display: none;">.nosp@m.</span>omai<span style="display: none;">.nosp@m.</span>n.com</a>) </dd></dl>
@@ -166,6 +181,59 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ls_stop</b> (void)</t
 <div class="line">}\</div>
 <div class="ttc" id="astructline__sensor_html"><div class="ttname"><a href="structline__sensor.html">line_sensor</a></div><div class="ttdoc">Line Sensor Module IO Ports, Interfaces &amp; Outputs.</div><div class="ttdef"><b>Definition:</b> line_sensor.h:36</div></div>
 </div><!-- fragment --><p>Line sensor structure initialization macro </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a85a123185c9bcad9229b17b05c5065e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85a123185c9bcad9229b17b05c5065e6">&#9670;&nbsp;</a></span>HAL_ADC_ConvCpltCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_ADC_ConvCpltCallback </td>
+          <td>(</td>
+          <td class="paramtype">ADC_HandleTypeDef *&#160;</td>
+          <td class="paramname"><em>_hadc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback executes on end of sampling. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hadc</td><td>ADC handler </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3dd49835b7027f3f82cd428ab1a2ee68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dd49835b7027f3f82cd428ab1a2ee68">&#9670;&nbsp;</a></span>HAL_ADC_ConvHalfCpltCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_ADC_ConvHalfCpltCallback </td>
+          <td>(</td>
+          <td class="paramtype">ADC_HandleTypeDef *&#160;</td>
+          <td class="paramname"><em>_hadc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback executes on half complete transfer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_hadc</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

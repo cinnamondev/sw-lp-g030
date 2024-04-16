@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['buff_0',['buff',['../structline__sensor.html#abd991fae2f7e39a1c48d1664e7922ad2',1,'line_sensor']]]
+  ['arr_5frange_0',['arr_range',['../structarr__range.html',1,'']]]
 ];

@@ -97,17 +97,10 @@ $(document).ready(function(){initNavTree('structline__sensor.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a443b9e9d02706e65fdfdac75feabd64e"><td class="memItemLeft" align="right" valign="top"><a id="a443b9e9d02706e65fdfdac75feabd64e"></a>
-struct <a class="el" href="structtcrt__channel.html">tcrt_channel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tcrt</b> [LINE_SENSOR_N]</td></tr>
+<tr class="memitem:a443b9e9d02706e65fdfdac75feabd64e"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structtcrt__channel.html">tcrt_channel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structline__sensor.html#a443b9e9d02706e65fdfdac75feabd64e">tcrt</a> [LINE_SENSOR_N]</td></tr>
 <tr class="separator:a443b9e9d02706e65fdfdac75feabd64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd991fae2f7e39a1c48d1664e7922ad2"><td class="memItemLeft" align="right" valign="top">float uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structline__sensor.html#abd991fae2f7e39a1c48d1664e7922ad2">buff</a> [LINE_SENSOR_N]</td></tr>
-<tr class="separator:abd991fae2f7e39a1c48d1664e7922ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7553e9d08767988fe368ce83d90b6bef"><td class="memItemLeft" align="right" valign="top"><a id="a7553e9d08767988fe368ce83d90b6bef"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>buff_1</b> [LINE_SENSOR_N]</td></tr>
-<tr class="separator:a7553e9d08767988fe368ce83d90b6bef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba4ad35dc7d78b6b9b92df1c52e94382"><td class="memItemLeft" align="right" valign="top"><a id="aba4ad35dc7d78b6b9b92df1c52e94382"></a>
-uint32_t buff_2[LINE_SENSOR_N] uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><b>activeBuffer</b></td></tr>
-<tr class="separator:aba4ad35dc7d78b6b9b92df1c52e94382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25c5082a6437b454a2cf0e087cb21bcb"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structline__sensor.html#a25c5082a6437b454a2cf0e087cb21bcb">buff</a> [LINE_SENSOR_N]</td></tr>
+<tr class="separator:a25c5082a6437b454a2cf0e087cb21bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e4be870e2d6f5224730ef8cd64aa711"><td class="memItemLeft" align="right" valign="top">I2C_TypeDef *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structline__sensor.html#a9e4be870e2d6f5224730ef8cd64aa711">hi2c</a></td></tr>
 <tr class="separator:a9e4be870e2d6f5224730ef8cd64aa711"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf011047d1f78e490e18a26d7dcd40fe"><td class="memItemLeft" align="right" valign="top">ADC_TypeDef *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structline__sensor.html#abf011047d1f78e490e18a26d7dcd40fe">hadc</a></td></tr>
@@ -118,18 +111,18 @@ uint32_t buff_2[LINE_SENSOR_N] uint32_t *&#160;</td><td class="memItemRight" val
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Line Sensor Module IO Ports, Interfaces &amp; Outputs. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="abd991fae2f7e39a1c48d1664e7922ad2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd991fae2f7e39a1c48d1664e7922ad2">&#9670;&nbsp;</a></span>buff</h2>
+<a id="a25c5082a6437b454a2cf0e087cb21bcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25c5082a6437b454a2cf0e087cb21bcb">&#9670;&nbsp;</a></span>buff</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float uint32_t line_sensor::buff[LINE_SENSOR_N]</td>
+          <td class="memname">uint32_t line_sensor::buff[LINE_SENSOR_N]</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Unprocessed samples from corresponding N sensor </p>
+<p>DMA Sample buffer </p>
 
 </div>
 </div>
@@ -144,7 +137,7 @@ uint32_t buff_2[LINE_SENSOR_N] uint32_t *&#160;</td><td class="memItemRight" val
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ADC Interface used (typ ADC1) </p>
+<p>ADC peripheral </p>
 
 </div>
 </div>
@@ -159,7 +152,7 @@ uint32_t buff_2[LINE_SENSOR_N] uint32_t *&#160;</td><td class="memItemRight" val
         </tr>
       </table>
 </div><div class="memdoc">
-<p>I2C Interface used (typ I2C1) </p>
+<p>I2C peripheral </p>
 
 </div>
 </div>
@@ -175,6 +168,21 @@ uint32_t buff_2[LINE_SENSOR_N] uint32_t *&#160;</td><td class="memItemRight" val
       </table>
 </div><div class="memdoc">
 <p>Processed line output </p>
+
+</div>
+</div>
+<a id="a443b9e9d02706e65fdfdac75feabd64e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a443b9e9d02706e65fdfdac75feabd64e">&#9670;&nbsp;</a></span>tcrt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structtcrt__channel.html">tcrt_channel</a> line_sensor::tcrt[LINE_SENSOR_N]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Each TCRT + ULN GPIO enable port/pin pairs Initialization should take place in rank order (see ADC init). </p><dl class="section note"><dt>Note</dt><dd>Reccomended order for 2.1a Target: S3,S2,S1,S6,S5,S4 </dd></dl>
 
 </div>
 </div>

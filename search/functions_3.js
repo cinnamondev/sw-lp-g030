@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_73',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]]
+  ['systemclock_5fconfig_77',['SystemClock_Config',['../main_8c.html#a70af21c671abfcc773614a9a4f63d920',1,'main.c']]]
 ];
