@@ -6,36 +6,53 @@
  */
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "common.h"
 #include "line_sensor/line_sensor.h"
 #include "stm32g030xx.h"
+#include "stm32g0xx_hal.h"
 #include "stm32g0xx_hal_adc_ex.h"
 #include "stm32g0xx_hal_gpio.h"
 #include "stm32g0xx_hal_i2c.h"
+#include "stm32g0xx_hal_iwdg.h"
+#include <math.h>
+#include <stdint.h>
 
 /* Private includes ----------------------------------------------------------*/
 
 /* Private typedef -----------------------------------------------------------*/
 
+struct arr_range {
+  size_t min;
+  size_t max;
+} RANGE_DEF = {
+  .min = 0xFFFF,
+  .max = 0xFFFF,
+};
+
 /* Private define ------------------------------------------------------------*/
-#define DEMOB /**< Undefine DEMOB to remove sensor debug output */
+
+#define THRESHOLD 2000
 /* Private macro -------------------------------------------------------------*/
 
 /* Private variables ---------------------------------------------------------*/
 static ADC_HandleTypeDef hadc1; /**< ADC peripheral*/
 static DMA_HandleTypeDef hdma_adc1; /**< DMA peripheral (for ADC transfers)*/
 static I2C_HandleTypeDef hi2c1; /**< I2C peripheral (acts as SLAVE). */
+static IWDG_HandleTypeDef hiwdg; /**< Independent Watchdog Peripheral*/
 static struct line_sensor s; /**< Line sensor hardware*/
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void); /**< Configure system clocks (full speed sysclk) */
 static void MX_GPIO_Init(void); /**< Initialize GPIO */
-
+static void MX_IWDG_Init(void); /**< Independent Watchdog Init*/
+static void MX_Error_Handler(void); /**< MX spin peripheral init fail general. */
+static struct arr_range find_next_thres_cluster(uint32_t* buffer, size_t size, uint32_t thres);
+static size_t find_max(uint32_t*, size_t);
 /* Private user code ---------------------------------------------------------*/
 
 /**
   * @brief  The application entry point.
-  * @retval int
+  * @retval int error code
   */
 int main(void)
 {
@@ -50,23 +67,99 @@ int main(void)
   MX_GPIO_Init();
   lp_i2c_init(I2C1);
 
+
+  HAL_ADCEx_Calibration_Start(&hadc1);
+  HAL_Delay(100); // Wait a while and hopefully the ADC is all sorted out.
+
   /* Main code */
   s = LINE_SENSOR(I2C1, ADC1, TARGET_LSA_21A_ORDER);
 
-
-  /* Infinite loop */
-  // Initial test state
   HAL_GPIO_WritePin(S1E_GPIO_Port, S1E_Pin, 1);
   HAL_GPIO_WritePin(S2E_GPIO_Port, S2E_Pin, 0);
   HAL_GPIO_WritePin(S3E_GPIO_Port, S3E_Pin, 1);
   HAL_GPIO_WritePin(S4E_GPIO_Port, S4E_Pin, 0);
   HAL_GPIO_WritePin(S5E_GPIO_Port, S5E_Pin, 1);
   float linePosition = 3.0f;
+  lp_i2c_start();
   while(1) {
-    
+    float output;
+    if(!ls_ready_to_process()) {continue;} // exit condition
+    // oh boy processing time!
+
+    // mark consecutive elements in array above threshold (lower upper range)
+    struct arr_range rangeFPass = find_next_thres_cluster(s.buff, LINE_SENSOR_N, THRESHOLD);
+    struct arr_range rangeSPass = find_next_thres_cluster(s.buff + rangeFPass.max, LINE_SENSOR_N-rangeFPass.max, THRESHOLD);
+    if (rangeSPass.min != 0xFFFF) {
+      // we have a problem...
+    } 
+    if (rangeFPass.min == 0xFFFF) {
+      // uhoh.. we arent on the line / line break ?
+
+
+    }
+    size_t range = rangeFPass.max - rangeFPass.min;
+    if (range > 3) {
+      // strange edge case, we should never see this ever happen! probably a turn...
+      // the behaviour will be to report the most extreme from centre point.
+      // (with a preference to the right side if it cannot decide)
+      output = (rangeFPass.min
+    } else if (range == 3) {
+      // find max within bounds
+      size_t max = find_max(&s.buff[rangeFPass.min], LINE_SENSOR_N-rangeFPass.min);
+
+    } else if (range == 2) {
+      // Find "where" the mean lies between the two (express mean as a percentage increase of min then apply to indicies)
+      float mean = (s.buff[rangeFPass.min] + s.buff[rangeFPass.max])/2.00;
+      float decrease = 100.0f-((1.0f*s.buff[rangeFPass.max]) - mean)/(1.0f*s.buff[rangeFPass.max]);
+      uint32_t max = (s.buff[rangeFPass.min] > s.buff[rangeFPass.max]) ? rangeFPass.min : rangeFPass.max;
+      _Bool minLarger = (s.buff[rangeFPass.min] > s.buff[rangeFPass.max]);
+      output = (s.buff[rangeFPass.min] > s.buff[rangeFPass.max]) ?
+        rangeFPass.min + (range*decrease) :
+        rangeFPass.max - (range*decrease); 
+    } else {
+      output = rangeFPass.min;
+    }
+    // if consecutive > 1
+    // mix using values to determine LP
+
+    // if consecutive = 1
+    // LP = line number (i)
+
+    // dump to I2C
+
+    // if we arent getting to this point here...
+    // then we arent getting ADC data which means something went wrong.
+    HAL_IWDG_Refresh(&hiwdg);
   }
 }
 
+static struct arr_range find_next_thres_cluster(uint32_t* buffer, size_t size, uint32_t thres) {
+  struct arr_range range;
+  for (size_t i=0; i<size; i++) {
+    if (buffer[i] >= thres) {
+      range.min = i;
+      break;
+    }
+  }
+  if (range.min == 0xFFFF) { return range; }
+  for (size_t i=range.min+1; i<size; i++) {
+    if (buffer[i] <= thres) {
+      range.max = i-1;
+      break;
+    }
+  }
+  return range;
+}
+
+static size_t find_max(uint32_t* buffer, size_t size) {
+  size_t i_m = 0;
+  for (int i=0; i<size;i++) {
+    if (buffer[i] > buffer[i_m]) {
+      i_m = i;
+    }
+  }
+  return i_m;
+}
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -95,7 +188,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
-    Error_Handler();
+    MX_Error_Handler();
   }
   /** Initializes the CPU, AHB and APB buses clocks
   */
@@ -107,7 +200,7 @@ void SystemClock_Config(void)
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
-    Error_Handler();
+    MX_Error_Handler();
   }
   /** Initializes the peripherals clocks
   */
@@ -116,16 +209,14 @@ void SystemClock_Config(void)
   PeriphClkInit.AdcClockSelection = RCC_ADCCLKSOURCE_SYSCLK;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
-    Error_Handler();
+    MX_Error_Handler();
   }
 }
 
 
 
 /**
-  * @brief GPIO Initialization Function
-  * @param None
-  * @retval None
+  * @brief GPIO Peripheral Init
   */
 static void MX_GPIO_Init(void)
 {
@@ -162,16 +253,32 @@ static void MX_GPIO_Init(void)
 }
 
 /**
+ * @brief IWDG Peripheral Init
+ */
+static void MX_IWDG_Init(void)
+{
+  hiwdg.Instance = IWDG;
+  hiwdg.Init.Prescaler = IWDG_PRESCALER_4;
+  hiwdg.Init.Window = 4095;
+  hiwdg.Init.Reload = 4095;
+  if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
+  {
+    MX_Error_Handler();
+  }
+  /* USER CODE BEGIN IWDG_Init 2 */
+
+  /* USER CODE END IWDG_Init 2 */
+
+}
+
+/**
   * @brief  This function is executed in case of error occurrence.
   * @retval None
   */
-void Error_Handler(void)
+static void MX_Error_Handler(void)
 {
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
-  while (1)
-  {
+  while (1) {
+
   }
-  /* USER CODE END Error_Handler_Debug */
 }

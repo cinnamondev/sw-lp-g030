@@ -33,6 +33,9 @@ extern "C" {
 
 /* Private defines -----------------------------------------------------------*/
 
+// Build defines 
+#define DEMOB /**< Undefine DEMOB to remove sensor debug output */
+
 // GPIO Defines
 
 #define S6E_Pin GPIO_PIN_14 /**< Sensor 6 Enable Pin */
@@ -67,5 +70,3 @@ extern "C" {
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

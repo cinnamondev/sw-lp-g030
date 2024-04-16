@@ -94,9 +94,9 @@ void HAL_I2C_ListenCpltCallback(I2C_HandleTypeDef *_hi2c) {
 /**
  * @brief I2C Transmit/Recieve Logic
  * 
- * @param _hi2c 
- * @param TransferDirection 
- * @param AddrMatchCode 
+ * @param _hi2c I2C instance
+ * @param TransferDirection I2C_DIRECTION_TRANSMIT means master wants to transmit
+ * @param AddrMatchCode Matching address (dual address mode)
  */
 void HAL_I2C_AddrCallback(I2C_HandleTypeDef *_hi2c, uint8_t TransferDirection, uint16_t AddrMatchCode) {
   if (_hi2c->Instance != hi2c->Instance) { return; }
@@ -131,7 +131,7 @@ static void I2C_init(I2C_TypeDef* instance)
 {
   hi2c->Instance = instance;
   hi2c->Init.Timing = 0x10707DBC;
-  hi2c->Init.OwnAddress1 = 66;
+  hi2c->Init.OwnAddress1 = 66; // 0x23 addr
   hi2c->Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c->Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c->Init.OwnAddress2 = 0;

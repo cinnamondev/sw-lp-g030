@@ -16,27 +16,56 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-static void DMA_init(void);
-static void ADC_init(void);
-static void ADC_Error_Handler(void);
-static ADC_HandleTypeDef* hadc;
-static struct line_sensor s;
-static int i = 0;
+static void DMA_init(void); /**< Configure DMA peripheral*/
+static void ADC_init(void); /**< Configure ADC peripheral*/
+static void ADC_Error_Handler(void); /**< ADC peripheral init spinner*/
+static ADC_HandleTypeDef* hadc; /**< ADC peripheral  instance*/
+static struct line_sensor s; /**< Line sensor instance */
+static int i = 0; /**< Counter used for GPIO switching*/
+
+static _Bool running = false;
+static _Bool ready_to_process = false;
 
 float linePosition;
 
+#define SENSOR_THRESHOLD 2000
 
-void ls_init(struct line_sensor *sensor) {
+void ls_init(struct line_sensor *sensor, ADC_HandleTypeDef* _hadc) {
+  hadc = _hadc;
   s = *sensor;
-  s.activeBuffer = s.buff_1;
   DMA_init();
   ADC_init(); 
   lp_i2c_init(s.hi2c);
 }
 
-void ls_start(void) { HAL_ADC_Start_DMA(hadc, s.buff, LINE_SENSOR_N); }
-void ls_stop(void) { HAL_ADC_Stop_DMA(hadc); }
+void ls_start(void) { 
+  running = true;
+  // bootstrap & ensure safe starting position
+  i=0;
+  SENSOR_ENABLE(s.tcrt[i]);
+  HAL_ADC_Start_DMA(hadc, s.buff, LINE_SENSOR_N); 
+}
+void ls_stop(void) { 
+  running = false;
+  HAL_ADC_Stop_DMA(hadc); 
+}
 
+_Bool ls_ready_to_process(void) {
+  return ready_to_process;
+}
+
+void ls_resume(void) {
+  HAL_ADC_Start(hadc);
+}
+static void ls_process(void) {
+  
+  for (int i=0; i<LINE_SENSOR_N; i++) {
+    if(s.buff[i] < SENSOR_THRESHOLD) { s.buff[i] = 0; }
+  }
+
+  // continue the DMA cycle. will continue until stopped `ls_stop`.
+  HAL_ADC_Start_DMA(hadc, s.buff, LINE_SENSOR_N);
+}
 /**
  * @brief ADC1 Initialization Function
  * @param None
@@ -45,7 +74,7 @@ void ls_stop(void) { HAL_ADC_Stop_DMA(hadc); }
 static void ADC_init(void) {
   ADC_ChannelConfTypeDef sConfig = {0};
   // ADC Configuration
-  hadc->Instance = ADC1;
+  hadc->Instance = s.hadc;
   hadc->Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
   hadc->Init.Resolution = ADC_RESOLUTION_12B;
   hadc->Init.DataAlign = ADC_DATAALIGN_RIGHT;
@@ -122,14 +151,23 @@ static void DMA_init(void) {
 }
 
 /**
- * @brief Overrides STM32 ADC Conversion complete callback. Should execute on 
- * end of CONVERSION.
+ * @brief Callback executes on half complete transfer
+ * 
+ * @param _hadc 
+ */
+void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *_hadc) {
+  return; // we do NOTHING here!
+}
+
+/**
+ * @brief Callback executes on end of sampling
  *
  * @param hadc ADC handler
  */
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *_hadc) {
-  // Do nothing... Required implementation.
-  s.activeBuffer[i] = HAL_ADC_GetValue(_hadc);    
+  SENSOR_DISABLE(s.tcrt[i]);
+  i=0;
+  HAL_ADC_Stop(_hadc);
 }
 
 /**
@@ -138,10 +176,10 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *_hadc) {
  * @param hadc ADC Handler
  */
 void HAL_ADCEx_EndOfSamplingCallback(ADC_HandleTypeDef *_hadc) {
-  // Find next in sequence enable & process
-  HAL_GPIO_WritePin(s.tcrt[i].en_port, s.tcrt[i].en_pin, 0);
+  // Enable next in sequence
+  SENSOR_DISABLE(s.tcrt[i]);
   if(++i >= LINE_SENSOR_N) { i = 0; };
-  HAL_GPIO_WritePin(s.tcrt[i].en_port, s.tcrt[i].en_pin, 1);
+  SENSOR_ENABLE(s.tcrt[i]);
 }
 
 static void ADC_Error_Handler() {

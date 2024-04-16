@@ -36,24 +36,22 @@
 struct line_sensor {
     /** Each TCRT + ULN GPIO enable port/pin pairs 
       * Initialization should take place in rank order (see ADC init).
-      * @example Reccomended order for 2.1a Target: S3,S2,S1,S6,S5,S4
+      * @note Reccomended order for 2.1a Target: S3,S2,S1,S6,S5,S4
       */
     struct tcrt_channel tcrt[LINE_SENSOR_N];
-    /** Unprocessed samples from corresponding N sensor */
-    float   
-    uint32_t buff[LINE_SENSOR_N];
-    uint32_t buff_1[LINE_SENSOR_N];
-    uint32_t buff_2[LINE_SENSOR_N]
-    uint32_t* activeBuffer;
-    /** I2C Interface used (typ I2C1) */
-    I2C_TypeDef* hi2c;
-    /** ADC Interface used (typ ADC1) */
-    ADC_TypeDef* hadc;
+    uint32_t buff[LINE_SENSOR_N]; /**< DMA Sample buffer*/
+    I2C_TypeDef* hi2c; /**< I2C peripheral */
+    ADC_TypeDef* hadc; /**< ADC peripheral*/
     /** Processed line output */
     float pos;
 };
 
-
+void ls_init(struct line_sensor*, ADC_HandleTypeDef*);
 void ls_start(void);
 void ls_stop(void);
+_Bool ls_ready_to_process(void);
+void ls_resume(void);
+
+void  HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef*);
+void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef*);
 #endif
