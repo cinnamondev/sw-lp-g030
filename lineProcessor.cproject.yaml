@@ -40,6 +40,10 @@ project:
     - group: Source
       files:
         - file: ./src/main.c
+        - file: ./src/common_mx.c
+        - file: ./src/line_sensor/i2c.c
+        - file: ./src/line_sensor/adc.c
+
   components:
     - component: Keil::Device:STM32Cube HAL:ADC@1.4.2
     - component: Keil::Device:STM32Cube HAL:Common@1.4.2

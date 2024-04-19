@@ -1,53 +1,31 @@
 /**
- * @file line_sensor_i2c.h
+ * @file i2c.h
  * @author cinnamondev
- * @brief I2C functionality for Line Sensor Module
- * 
+ * @brief Line Sensor Module I2C Functionality
  * 
  */
 
-#ifndef __LINE_SENSOR_I2C_H
-#define __LINE_SENSOR_I2C_H
+#ifndef LS_I2C_H
+#define LS_I2C_H
 
 #include "stm32g0xx.h"
 #include "stm32g0xx_hal_i2c.h"
 
-/**
- * @brief Initializes the I2C instance and sets the TX buffer.
- * 
- * @param instance I2C Instance (I2X, for G030 board, use I2C1)
- *
- * @warning It is reccomended to check the result of `lp_i2c_buffer_occupied`
- * prior to writing to the buffer, as the I2C may be in the middle of a transfer.
- * @return I2C_HandleTypeDef* 
- */
-I2C_HandleTypeDef* lp_i2c_init(I2C_TypeDef* instance);
+void ls_i2c_init(I2C_HandleTypeDef* _hi2c);
 
-/**
- * @brief Set the transmit buffer (where the resulting line position is stored)
- * 
- * @param buf Buffer (of size `LV_I2C_CONF_TX_BUF`)
- */
-void lp_i2c_set_tx(void* buf);
+void ls_i2c_start(void);
 
-/**
- * @brief Returns non-zero if the buffer is being used in a transfer currently.
- * 
- * @return _Bool Non-zero if occupied in transfer.
- */
-_Bool lp_i2c_buffer_occupied(void);
+void ls_i2c_stop(void);
 
-/**
- * @brief Begin listening for matching I2C address.
- * 
- */
-void lp_i2c_start(void);
+void ls_i2c_buff_update_blk(float* new);
 
-/**
- * @brief Stop listening for matching I2C address.
- * 
- */
-void lp_i2c_stop(void);
+void ls_i2c_tdb_buff_update_blk(uint32_t* new);
+
+void HAL_I2C_ListenCpltCallback(I2C_HandleTypeDef *_hi2c);
+
+void HAL_I2C_AddrCallback(I2C_HandleTypeDef *_hi2c, uint8_t TransferDirection, uint16_t AddrMatchCode);
+
+void HAL_I2C_SlaveTxCpltCallback(I2C_HandleTypeDef *hi2c);
 
 
-#endif // __LINE_SENSOR_I2C_H
+#endif // LS_I2C_H
