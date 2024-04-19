@@ -84,156 +84,41 @@ $(document).ready(function(){initNavTree('line__sensor_8h.html',''); initResizab
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">line_sensor.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &quot;i2c.h&quot;</code><br />
-<code>#include &quot;stm32g0xx_hal_adc.h&quot;</code><br />
-<code>#include &quot;stm32g0xx_hal_i2c.h&quot;</code><br />
-<code>#include &quot;tcrt5000.h&quot;</code><br />
+
+<p>Line sensor functions.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="tcrt5000_8h_source.html">tcrt5000.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="i2c_8h_source.html">i2c.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="adc_8h_source.html">adc.h</a>&quot;</code><br />
 </div>
 <p><a href="line__sensor_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structline__sensor.html">line_sensor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line Sensor Module IO Ports, Interfaces &amp; Outputs.  <a href="structline__sensor.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:afa2f1b432ddd5a699d97115288a0443d"><td class="memItemLeft" align="right" valign="top"><a id="afa2f1b432ddd5a699d97115288a0443d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LINE_SENSOR_N</b>&#160;&#160;&#160;6</td></tr>
-<tr class="separator:afa2f1b432ddd5a699d97115288a0443d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea2587a9e26b7c55ec488b6fe5963318"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="line__sensor_8h.html#aea2587a9e26b7c55ec488b6fe5963318">LINE_SENSOR</a>(_hi2c,  _hadc, ...)</td></tr>
-<tr class="separator:aea2587a9e26b7c55ec488b6fe5963318"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a7090f92b8364e7855c3d9e72c7008c3a"><td class="memItemLeft" align="right" valign="top"><a id="a7090f92b8364e7855c3d9e72c7008c3a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ls_init</b> (struct <a class="el" href="structline__sensor.html">line_sensor</a> *, ADC_HandleTypeDef *)</td></tr>
-<tr class="separator:a7090f92b8364e7855c3d9e72c7008c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a309d69e72d03bdbc88d7654481ff242c"><td class="memItemLeft" align="right" valign="top"><a id="a309d69e72d03bdbc88d7654481ff242c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ls_start</b> (void)</td></tr>
-<tr class="separator:a309d69e72d03bdbc88d7654481ff242c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66dfddf50f08ce12bbcdca78f3d9ef00"><td class="memItemLeft" align="right" valign="top"><a id="a66dfddf50f08ce12bbcdca78f3d9ef00"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ls_stop</b> (void)</td></tr>
-<tr class="separator:a66dfddf50f08ce12bbcdca78f3d9ef00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afaa1228d35d082a13cdcd3d25586edec"><td class="memItemLeft" align="right" valign="top"><a id="afaa1228d35d082a13cdcd3d25586edec"></a>
-_Bool&#160;</td><td class="memItemRight" valign="bottom"><b>ls_ready_to_process</b> (void)</td></tr>
-<tr class="separator:afaa1228d35d082a13cdcd3d25586edec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a939c20f94f6864ce1af0a8bc0cce4596"><td class="memItemLeft" align="right" valign="top"><a id="a939c20f94f6864ce1af0a8bc0cce4596"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ls_resume</b> (void)</td></tr>
-<tr class="separator:a939c20f94f6864ce1af0a8bc0cce4596"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85a123185c9bcad9229b17b05c5065e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="line__sensor_8h.html#a85a123185c9bcad9229b17b05c5065e6">HAL_ADC_ConvCpltCallback</a> (ADC_HandleTypeDef *)</td></tr>
-<tr class="memdesc:a85a123185c9bcad9229b17b05c5065e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback executes on end of sampling.  <a href="line__sensor_8h.html#a85a123185c9bcad9229b17b05c5065e6">More...</a><br /></td></tr>
-<tr class="separator:a85a123185c9bcad9229b17b05c5065e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3dd49835b7027f3f82cd428ab1a2ee68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="line__sensor_8h.html#a3dd49835b7027f3f82cd428ab1a2ee68">HAL_ADC_ConvHalfCpltCallback</a> (ADC_HandleTypeDef *)</td></tr>
-<tr class="memdesc:a3dd49835b7027f3f82cd428ab1a2ee68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback executes on half complete transfer.  <a href="line__sensor_8h.html#a3dd49835b7027f3f82cd428ab1a2ee68">More...</a><br /></td></tr>
-<tr class="separator:a3dd49835b7027f3f82cd428ab1a2ee68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3d97ccc2a0d5e0a7def0d050f763f52"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="line__sensor_8h.html#ab3d97ccc2a0d5e0a7def0d050f763f52">N_SENSORS</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:ab3d97ccc2a0d5e0a7def0d050f763f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>your name (<a href="#" onclick="location.href='mai'+'lto:'+'you'+'@d'+'oma'+'in'+'.co'+'m'; return false;">you@d<span style="display: none;">.nosp@m.</span>omai<span style="display: none;">.nosp@m.</span>n.com</a>) </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2024-03-08</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024 </dd></dl>
+<div class="textblock"><p>Line sensor functions. </p>
+<dl class="section author"><dt>Author</dt><dd>cinnamondev </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aea2587a9e26b7c55ec488b6fe5963318"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea2587a9e26b7c55ec488b6fe5963318">&#9670;&nbsp;</a></span>LINE_SENSOR</h2>
+<a id="ab3d97ccc2a0d5e0a7def0d050f763f52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3d97ccc2a0d5e0a7def0d050f763f52">&#9670;&nbsp;</a></span>N_SENSORS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define LINE_SENSOR</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">_hi2c, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">_hadc, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">#define N_SENSORS&#160;&#160;&#160;6</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  (<span class="keyword">struct </span><a class="code" href="structline__sensor.html">line_sensor</a>) {\</div>
-<div class="line">  .tcrt = { __VA_ARGS__ },\</div>
-<div class="line">  .hi2c = _hi2c,\</div>
-<div class="line">  .hadc = _hadc,\</div>
-<div class="line">}\</div>
-<div class="ttc" id="astructline__sensor_html"><div class="ttname"><a href="structline__sensor.html">line_sensor</a></div><div class="ttdoc">Line Sensor Module IO Ports, Interfaces &amp; Outputs.</div><div class="ttdef"><b>Definition:</b> line_sensor.h:36</div></div>
-</div><!-- fragment --><p>Line sensor structure initialization macro </p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a85a123185c9bcad9229b17b05c5065e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85a123185c9bcad9229b17b05c5065e6">&#9670;&nbsp;</a></span>HAL_ADC_ConvCpltCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HAL_ADC_ConvCpltCallback </td>
-          <td>(</td>
-          <td class="paramtype">ADC_HandleTypeDef *&#160;</td>
-          <td class="paramname"><em>_hadc</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Callback executes on end of sampling. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">hadc</td><td>ADC handler </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a3dd49835b7027f3f82cd428ab1a2ee68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3dd49835b7027f3f82cd428ab1a2ee68">&#9670;&nbsp;</a></span>HAL_ADC_ConvHalfCpltCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HAL_ADC_ConvHalfCpltCallback </td>
-          <td>(</td>
-          <td class="paramtype">ADC_HandleTypeDef *&#160;</td>
-          <td class="paramname"><em>_hadc</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Callback executes on half complete transfer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">_hadc</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Number of sensors present on target board </p>
 
 </div>
 </div>

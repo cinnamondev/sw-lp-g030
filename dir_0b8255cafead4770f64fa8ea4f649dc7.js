@@ -1,8 +1,8 @@
 var dir_0b8255cafead4770f64fa8ea4f649dc7 =
 [
-    [ "i2c.c", "i2c_8c.html", "i2c_8c" ],
-    [ "i2c.h", "i2c_8h_source.html", null ],
-    [ "line_sensor.c", "line__sensor_8c.html", "line__sensor_8c" ],
+    [ "adc.c", "adc_8c.html", "adc_8c" ],
+    [ "adc.h", "adc_8h.html", "adc_8h" ],
+    [ "i2c.h", "i2c_8h.html", "i2c_8h" ],
     [ "line_sensor.h", "line__sensor_8h.html", "line__sensor_8h" ],
-    [ "tcrt5000.h", "tcrt5000_8h_source.html", null ]
+    [ "tcrt5000.h", "tcrt5000_8h.html", "tcrt5000_8h" ]
 ];

@@ -84,8 +84,6 @@ $(document).ready(function(){initNavTree('main_8c.html',''); initResizable(); })
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -93,48 +91,62 @@ $(document).ready(function(){initNavTree('main_8c.html',''); initResizable(); })
 </div><!--header-->
 <div class="contents">
 
-<p>Main program for Line Sensor Module.  
+<p>Line Sensor Module Firmware.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="line__sensor_8h_source.html">line_sensor/line_sensor.h</a>&quot;</code><br />
-<code>#include &quot;stm32g030xx.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="common__mx_8h_source.html">common_mx.h</a>&quot;</code><br />
 <code>#include &quot;stm32g0xx_hal.h&quot;</code><br />
 <code>#include &quot;stm32g0xx_hal_adc_ex.h&quot;</code><br />
-<code>#include &quot;stm32g0xx_hal_gpio.h&quot;</code><br />
-<code>#include &quot;stm32g0xx_hal_i2c.h&quot;</code><br />
-<code>#include &quot;stm32g0xx_hal_iwdg.h&quot;</code><br />
-<code>#include &lt;math.h&gt;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &quot;stm32g0xx_hal_conf.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="line__sensor_8h_source.html">line_sensor/line_sensor.h</a>&quot;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structarr__range.html">arr_range</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a4679d8ea8690999a6c6c7c0cb245c879"><td class="memItemLeft" align="right" valign="top"><a id="a4679d8ea8690999a6c6c7c0cb245c879"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>THRESHOLD</b>&#160;&#160;&#160;2000</td></tr>
-<tr class="separator:a4679d8ea8690999a6c6c7c0cb245c879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a70af21c671abfcc773614a9a4f63d920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920">SystemClock_Config</a> (void)</td></tr>
-<tr class="memdesc:a70af21c671abfcc773614a9a4f63d920"><td class="mdescLeft">&#160;</td><td class="mdescRight">System Clock Configuration.  <a href="main_8c.html#a70af21c671abfcc773614a9a4f63d920">More...</a><br /></td></tr>
-<tr class="separator:a70af21c671abfcc773614a9a4f63d920"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
 <tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The application entry point.  <a href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">More...</a><br /></td></tr>
 <tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1730ffe1e560465665eb47d9264826f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a> (void)</td></tr>
+<tr class="separator:a1730ffe1e560465665eb47d9264826f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ae0508b2bcee43b2dcb53075c03e0e1ff"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structarr__range.html">arr_range</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RANGE_DEF</b></td></tr>
-<tr class="separator:ae0508b2bcee43b2dcb53075c03e0e1ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22b804736f5648d52f639b2647d4ed13"><td class="memItemLeft" align="right" valign="top"><a id="a22b804736f5648d52f639b2647d4ed13"></a>
+ADC_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>hadc1</b></td></tr>
+<tr class="separator:a22b804736f5648d52f639b2647d4ed13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c126854bb1813d31ab4776b21dcc51f"><td class="memItemLeft" align="right" valign="top"><a id="a1c126854bb1813d31ab4776b21dcc51f"></a>
+DMA_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>hdma_adc1</b></td></tr>
+<tr class="separator:a1c126854bb1813d31ab4776b21dcc51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7b2c26e44dadaaa798a5c3d82914ba7"><td class="memItemLeft" align="right" valign="top"><a id="af7b2c26e44dadaaa798a5c3d82914ba7"></a>
+I2C_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>hi2c1</b></td></tr>
+<tr class="separator:af7b2c26e44dadaaa798a5c3d82914ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80f055e38f52ca3c57e183fc685ea477"><td class="memItemLeft" align="right" valign="top"><a id="a80f055e38f52ca3c57e183fc685ea477"></a>
+IWDG_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>hiwdg</b></td></tr>
+<tr class="separator:a80f055e38f52ca3c57e183fc685ea477"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Main program for Line Sensor Module. </p>
+<div class="textblock"><p>Line Sensor Module Firmware. </p>
 <dl class="section author"><dt>Author</dt><dd>cinnamondev </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>rev2-tdb </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a1730ffe1e560465665eb47d9264826f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1730ffe1e560465665eb47d9264826f9">&#9670;&nbsp;</a></span>Error_Handler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Error_Handler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>HAL error handler </p>
+
+</div>
+</div>
 <a id="a840291bc02cba5474a4cb46a9b9566fe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&nbsp;</a></span>main()</h2>
 
@@ -154,61 +166,11 @@ Variables</h2></td></tr>
 <p>The application entry point. </p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">int</td><td>error code </td></tr>
+    <tr><td class="paramname">int</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-</div>
-</div>
-<a id="a70af21c671abfcc773614a9a4f63d920"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70af21c671abfcc773614a9a4f63d920">&#9670;&nbsp;</a></span>SystemClock_Config()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SystemClock_Config </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>System Clock Configuration. </p>
-<p>Configure system clocks (full speed sysclk)</p>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Configure the main internal regulator output voltage</p>
-<p>Initializes the RCC Oscillators according to the specified parameters in the RCC_OscInitTypeDef structure.</p>
-<p>Initializes the CPU, AHB and APB buses clocks</p>
-<p>Initializes the peripherals clocks</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ae0508b2bcee43b2dcb53075c03e0e1ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0508b2bcee43b2dcb53075c03e0e1ff">&#9670;&nbsp;</a></span>RANGE_DEF</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct <a class="el" href="structarr__range.html">arr_range</a> RANGE_DEF</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">  .min = 0xFFFF,</div>
-<div class="line">  .max = 0xFFFF,</div>
-<div class="line">}</div>
-</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

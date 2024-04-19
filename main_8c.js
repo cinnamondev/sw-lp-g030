@@ -1,8 +1,9 @@
 var main_8c =
 [
-    [ "arr_range", "structarr__range.html", "structarr__range" ],
-    [ "THRESHOLD", "main_8c.html#a4679d8ea8690999a6c6c7c0cb245c879", null ],
+    [ "Error_Handler", "main_8c.html#a1730ffe1e560465665eb47d9264826f9", null ],
     [ "main", "main_8c.html#a840291bc02cba5474a4cb46a9b9566fe", null ],
-    [ "SystemClock_Config", "main_8c.html#a70af21c671abfcc773614a9a4f63d920", null ],
-    [ "RANGE_DEF", "main_8c.html#ae0508b2bcee43b2dcb53075c03e0e1ff", null ]
+    [ "hadc1", "main_8c.html#a22b804736f5648d52f639b2647d4ed13", null ],
+    [ "hdma_adc1", "main_8c.html#a1c126854bb1813d31ab4776b21dcc51f", null ],
+    [ "hi2c1", "main_8c.html#af7b2c26e44dadaaa798a5c3d82914ba7", null ],
+    [ "hiwdg", "main_8c.html#a80f055e38f52ca3c57e183fc685ea477", null ]
 ];

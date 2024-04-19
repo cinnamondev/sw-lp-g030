@@ -87,35 +87,37 @@ $(document).ready(function(){initNavTree('i2c_8h_source.html',''); initResizable
 <div class="title">i2c.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef __LINE_SENSOR_I2C_H</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define __LINE_SENSOR_I2C_H</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;stm32g0xx.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;stm32g0xx_hal_i2c.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;I2C_HandleTypeDef* <a class="code" href="i2c_8c.html#a13ace6890054e6b1eba5a86bbf47fe2a">lp_i2c_init</a>(I2C_TypeDef* instance);</div>
+<a href="i2c_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef LS_I2C_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define LS_I2C_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;stm32g0xx.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;stm32g0xx_hal_i2c.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> ls_i2c_init(I2C_HandleTypeDef* _hi2c);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> ls_i2c_start(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> ls_i2c_stop(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> ls_i2c_buff_update_blk(<span class="keywordtype">float</span>* <span class="keyword">new</span>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> ls_i2c_tdb_buff_update_blk(uint32_t* <span class="keyword">new</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> HAL_I2C_ListenCpltCallback(I2C_HandleTypeDef *_hi2c);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> lp_i2c_set_tx(<span class="keywordtype">void</span>* buf);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;_Bool <a class="code" href="i2c_8c.html#a9bc39c8dd5c3e4af81bcce376a207b75">lp_i2c_buffer_occupied</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="i2c_8c.html#a9e9b54975918f89182fdabdbd64ceabd">lp_i2c_start</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> <a class="code" href="i2c_8c.html#a797e2cd4300ed58f0bfd52dd204f4809">lp_i2c_stop</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// __LINE_SENSOR_I2C_H</span></div>
-<div class="ttc" id="ai2c_8c_html_a13ace6890054e6b1eba5a86bbf47fe2a"><div class="ttname"><a href="i2c_8c.html#a13ace6890054e6b1eba5a86bbf47fe2a">lp_i2c_init</a></div><div class="ttdeci">I2C_HandleTypeDef * lp_i2c_init(I2C_TypeDef *instance)</div><div class="ttdoc">Initialize I2C interface, set up buffers.</div><div class="ttdef"><b>Definition:</b> i2c.c:36</div></div>
-<div class="ttc" id="ai2c_8c_html_a797e2cd4300ed58f0bfd52dd204f4809"><div class="ttname"><a href="i2c_8c.html#a797e2cd4300ed58f0bfd52dd204f4809">lp_i2c_stop</a></div><div class="ttdeci">void lp_i2c_stop(void)</div><div class="ttdoc">Stop I2C interface.</div><div class="ttdef"><b>Definition:</b> i2c.c:80</div></div>
-<div class="ttc" id="ai2c_8c_html_a9bc39c8dd5c3e4af81bcce376a207b75"><div class="ttname"><a href="i2c_8c.html#a9bc39c8dd5c3e4af81bcce376a207b75">lp_i2c_buffer_occupied</a></div><div class="ttdeci">_Bool lp_i2c_buffer_occupied(void)</div><div class="ttdoc">Reports if the buffer is occupied (deny write)</div><div class="ttdef"><b>Definition:</b> i2c.c:64</div></div>
-<div class="ttc" id="ai2c_8c_html_a9e9b54975918f89182fdabdbd64ceabd"><div class="ttname"><a href="i2c_8c.html#a9e9b54975918f89182fdabdbd64ceabd">lp_i2c_start</a></div><div class="ttdeci">void lp_i2c_start(void)</div><div class="ttdoc">Start I2C interface.</div><div class="ttdef"><b>Definition:</b> i2c.c:72</div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> HAL_I2C_AddrCallback(I2C_HandleTypeDef *_hi2c, uint8_t TransferDirection, uint16_t AddrMatchCode);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> HAL_I2C_SlaveTxCpltCallback(I2C_HandleTypeDef *hi2c);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LS_I2C_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0b8255cafead4770f64fa8ea4f649dc7.html">line_sensor</a></li><li class="navelem"><b>i2c.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0b8255cafead4770f64fa8ea4f649dc7.html">line_sensor</a></li><li class="navelem"><a class="el" href="i2c_8h.html">i2c.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

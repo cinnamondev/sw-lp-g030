@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['systemclock_5fconfig_77',['SystemClock_Config',['../main_8c.html#a70af21c671abfcc773614a9a4f63d920',1,'main.c']]]
+  ['tcrt_5finit_45',['tcrt_init',['../tcrt5000_8h.html#a95bfee1b684e333c62148e011efb2445',1,'tcrt5000.h']]]
 ];

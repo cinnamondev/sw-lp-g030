@@ -26,24 +26,17 @@ var NAVTREE =
 [
   [ "Line Sensor Firmware", "index.html", [
     [ "sw-lp-g030", "index.html", [
-      [ "Development", "index.html#autotoc_md3", [
-        [ "Dependencies", "index.html#autotoc_md4", null ],
-        [ "Building", "index.html#autotoc_md5", null ],
-        [ "Using Open-CMSIS-Pack csolutions: VSCode", "index.html#autotoc_md6", null ],
-        [ "Code styling", "index.html#autotoc_md7", null ]
+      [ "Development", "index.html#autotoc_md1", [
+        [ "Dependencies", "index.html#autotoc_md2", null ],
+        [ "Building", "index.html#autotoc_md3", null ],
+        [ "Using Open-CMSIS-Pack csolutions: VSCode", "index.html#autotoc_md4", null ],
+        [ "Code styling", "index.html#autotoc_md5", null ]
       ] ],
-      [ "PCB Schematic", "index.html#autotoc_md8", null ]
-    ] ],
-    [ "Scan pattern design", "md_src_line_sensor_README.html", [
-      [ "Portability", "md_src_line_sensor_README.html#autotoc_md1", null ]
+      [ "PCB Schematic", "index.html#autotoc_md6", null ]
     ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
-      [ "Data Structure Index", "classes.html", null ],
-      [ "Data Fields", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Variables", "functions_vars.html", null ]
-      ] ]
+      [ "Data Structure Index", "classes.html", null ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
@@ -58,7 +51,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"adc_8c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

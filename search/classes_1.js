@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['line_5fsensor_58',['line_sensor',['../structline__sensor.html',1,'']]]
+  ['tcrt_5fchannel_27',['tcrt_channel',['../structtcrt__channel.html',1,'']]]
 ];

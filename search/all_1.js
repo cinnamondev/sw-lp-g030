@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['buff_1',['buff',['../structline__sensor.html#a25c5082a6437b454a2cf0e087cb21bcb',1,'line_sensor']]]
+  ['common_5fmx_2ec_3',['common_mx.c',['../common__mx_8c.html',1,'']]],
+  ['common_5fmx_2eh_4',['common_mx.h',['../common__mx_8h.html',1,'']]]
 ];

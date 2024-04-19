@@ -87,34 +87,50 @@ $(document).ready(function(){initNavTree('tcrt5000_8h_source.html',''); initResi
 <div class="title">tcrt5000.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;stm32g030xx.h&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;stm32g0xx_hal.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;stm32g0xx_hal_gpio.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef TCRT5000_H</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TCRT5000_H</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define SENSOR_TOGGLE(ch) HAL_GPIO_TogglePin(ch.en_port, ch.en_pin)</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define SENSOR_ENABLE(ch) HAL_GPIO_WritePin(ch.en_port, ch.en_pin, GPIO_PIN_SET)</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define SENSOR_DISABLE(ch) HAL_GPIO_WritePin(ch.en_port, ch.en_pin, GPIO_PIN_RESET)</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structtcrt__channel.html">   20</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtcrt__channel.html">tcrt_channel</a> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    GPIO_TypeDef* adc_port;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    uint16_t adc_pin;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    GPIO_TypeDef* en_port;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    uint16_t en_pin;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">void</span> tcrt_init(<span class="keyword">struct</span> <a class="code" href="structtcrt__channel.html">tcrt_channel</a> *s, GPIO_TypeDef* adc_port, uint16_t adc_pin, GPIO_TypeDef* en_port, uint16_t en_pin);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// TCRT5000_H</span></div>
-<div class="ttc" id="astructtcrt__channel_html"><div class="ttname"><a href="structtcrt__channel.html">tcrt_channel</a></div><div class="ttdoc">Generic TCRT5000 GPIO interface.</div><div class="ttdef"><b>Definition:</b> tcrt5000.h:20</div></div>
+<a href="tcrt5000_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef TCRT5000_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define TCRT5000_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;stm32g0xx.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;stm32g0xx_hal_gpio.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="tcrt5000_8h.html#abefaf30921b951d9dcb0d244a821fd06">   14</a></span>&#160;<span class="preprocessor">#define SENSOR_TOGGLE(ch) HAL_GPIO_TogglePin(ch.en_port, ch.en_pin)</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="tcrt5000_8h.html#abbc9a634432c6cc50b36962f4a9b21ec">   16</a></span>&#160;<span class="preprocessor">#define SENSOR_ENABLE(ch) HAL_GPIO_WritePin(ch.en_port, ch.en_pin, GPIO_PIN_SET)</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="tcrt5000_8h.html#a7bc905641447f56703102e10337d0dd0">   18</a></span>&#160;<span class="preprocessor">#define SENSOR_DISABLE(ch)                                                     \</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">  HAL_GPIO_WritePin(ch.en_port, ch.en_pin, GPIO_PIN_RESET)</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="tcrt5000_8h.html#a59a0fd8f55d58b92e2d7c747ce809b1a">   26</a></span>&#160;<span class="preprocessor">#define S(n) (struct tcrt_channel) {\</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">  .adc_port = S## n ##_GPIO_Port, \</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">  .adc_pin = S ## n ## _Pin, \</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">  .en_port = S ## n ## E_GPIO_Port, \</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">  .en_pin = S ## n ## E_Pin, \</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">} \</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor"></span> </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structtcrt__channel.html">   39</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtcrt__channel.html">tcrt_channel</a> {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  GPIO_TypeDef *adc_port;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  uint16_t adc_pin;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  GPIO_TypeDef *en_port;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  uint16_t en_pin;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="tcrt5000_8h.html#a95bfee1b684e333c62148e011efb2445">   56</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tcrt5000_8h.html#a95bfee1b684e333c62148e011efb2445">tcrt_init</a>(<span class="keyword">struct</span> <a class="code" href="structtcrt__channel.html">tcrt_channel</a> *s, GPIO_TypeDef *adc_port, uint16_t adc_pin,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;               GPIO_TypeDef *en_port, uint16_t en_pin) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  s-&gt;adc_port = adc_port;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  s-&gt;adc_pin = adc_pin;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  s-&gt;en_port = en_port;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  s-&gt;en_pin = en_pin;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// TCRT5000_H</span></div>
+<div class="ttc" id="astructtcrt__channel_html"><div class="ttname"><a href="structtcrt__channel.html">tcrt_channel</a></div><div class="ttdoc">Generic TCRT5000 GPIO interface.</div><div class="ttdef"><b>Definition:</b> tcrt5000.h:39</div></div>
+<div class="ttc" id="atcrt5000_8h_html_a95bfee1b684e333c62148e011efb2445"><div class="ttname"><a href="tcrt5000_8h.html#a95bfee1b684e333c62148e011efb2445">tcrt_init</a></div><div class="ttdeci">void tcrt_init(struct tcrt_channel *s, GPIO_TypeDef *adc_port, uint16_t adc_pin, GPIO_TypeDef *en_port, uint16_t en_pin)</div><div class="ttdoc">Initialize generic tcrt5000 structure.</div><div class="ttdef"><b>Definition:</b> tcrt5000.h:56</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0b8255cafead4770f64fa8ea4f649dc7.html">line_sensor</a></li><li class="navelem"><b>tcrt5000.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0b8255cafead4770f64fa8ea4f649dc7.html">line_sensor</a></li><li class="navelem"><a class="el" href="tcrt5000_8h.html">tcrt5000.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
