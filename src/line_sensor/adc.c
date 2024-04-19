@@ -25,10 +25,10 @@ struct arr_range {
 };
 
 static ADC_HandleTypeDef* hadc;
-static int buffer_ready = 0;
+static volatile int buffer_ready = 0;
 static int adc_running = 0;
-static uint32_t raw_buff[6];
-static float calculated_position;
+static volatile uint32_t raw_buff[6];
+static volatile float calculated_position;
 
 static void process_samples(void);
 static struct arr_range find_next_thres_cluster(uint32_t* buffer, size_t size, uint32_t thres);

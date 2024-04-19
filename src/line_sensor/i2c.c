@@ -9,11 +9,11 @@
 #define WAIT_TDB_BUFFER_FREE() while(tdbOutputBufferTxActive) { __NOP(); }
 
 static I2C_HandleTypeDef* hi2c;
-static uint8_t commandWord;
-static float outputBuffer = -1;
-static int outputBufferTxActive = 0;
-static uint32_t tdbOutputBuffer[6] = {0,0,0,0,0,0}; 
-static int tdbOutputBufferTxActive = 0;
+static volatile uint8_t commandWord;
+static volatile float outputBuffer = -1;
+static volatile int outputBufferTxActive = 0;
+static volatile uint32_t tdbOutputBuffer[6] = {0,0,0,0,0,0}; 
+static volatile int tdbOutputBufferTxActive = 0;
 
 void ls_i2c_init(I2C_HandleTypeDef* _hi2c) {
     hi2c = _hi2c;
