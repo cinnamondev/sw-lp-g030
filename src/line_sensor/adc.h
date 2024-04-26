@@ -27,7 +27,7 @@
 void ls_adc_init(ADC_HandleTypeDef* _hadc);
 void ls_adc_start(void);
 void ls_adc_stop(void);
-float* ls_adc_wait_for(void);
+float ls_adc_wait_for(void);
 uint32_t* ls_adc_get_raw(void);
 void ls_adc_resume(void);
 int ls_adc_running(void);

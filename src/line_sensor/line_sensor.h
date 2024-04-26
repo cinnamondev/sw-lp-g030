@@ -15,6 +15,4 @@
 #define N_SENSORS 6 /**< Number of sensors present on target board*/
 #endif
 
-
-
 #endif // LINE_SENSOR_H

@@ -115,9 +115,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    float* adcOutput = ls_adc_wait_for();
+    float adcOutput = ls_adc_wait_for();
     uint32_t* tdbOutput = ls_adc_get_raw();
-    ls_i2c_buff_update_blk(adcOutput);
+    ls_i2c_buff_update_blk(&adcOutput);
     ls_i2c_tdb_buff_update_blk(tdbOutput);
     // if we arent getting to this point here...
     // then we arent getting ADC data which means something went wrong.

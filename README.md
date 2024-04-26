@@ -2,6 +2,14 @@
 
 Software for the STM32G030F6P6 on-board the Line Sensor Module.
 
+## Important!
+
+This repositorys & corresponding documentation should be considered dead code.
+The second microcontroller is no longer functional, while the code here should
+work, it can no longer be programmed. Please consider this when reviewing the
+documentation herein, thank you!
+
+
 ## Development
 
 ### Dependencies
