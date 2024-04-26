@@ -26,13 +26,14 @@ var NAVTREE =
 [
   [ "Line Sensor Firmware", "index.html", [
     [ "sw-lp-g030", "index.html", [
-      [ "Development", "index.html#autotoc_md1", [
-        [ "Dependencies", "index.html#autotoc_md2", null ],
-        [ "Building", "index.html#autotoc_md3", null ],
-        [ "Using Open-CMSIS-Pack csolutions: VSCode", "index.html#autotoc_md4", null ],
-        [ "Code styling", "index.html#autotoc_md5", null ]
+      [ "Important!", "index.html#autotoc_md1", null ],
+      [ "Development", "index.html#autotoc_md2", [
+        [ "Dependencies", "index.html#autotoc_md3", null ],
+        [ "Building", "index.html#autotoc_md4", null ],
+        [ "Using Open-CMSIS-Pack csolutions: VSCode", "index.html#autotoc_md5", null ],
+        [ "Code styling", "index.html#autotoc_md6", null ]
       ] ],
-      [ "PCB Schematic", "index.html#autotoc_md6", null ]
+      [ "PCB Schematic", "index.html#autotoc_md7", null ]
     ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],

@@ -89,8 +89,11 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a> Software for the STM32G030F6P6 on-board the Line Sensor Module.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
+Important!</h1>
+<p>This repositorys &amp; corresponding documentation should be considered dead code. The second microcontroller is no longer functional, while the code here should work, it can no longer be programmed. Please consider this when reviewing the documentation herein, thank you!</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
 Development</h1>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
 Dependencies</h2>
 <ul>
 <li>Windows/Linux/Other compatible environment (can run vcpkg)</li>
@@ -104,22 +107,22 @@ Dependencies</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Building</h2>
 <p>Building has been tested via the vcpkg environment and vscode configurations.</p>
 <p>If you have an internet connection and can use vcpkg, vcpkg will pull in all the relevant build dependencies for you. This is much preferred because C/C++ tooling is a terrible rabbit hole.</p>
 <p>CMSIS-Packs are an easy way to obtain major dependencies (i.e. arm math libraries, lvgl, bsp packages, etc, which will be able to download and install <a href="https://www.keil.arm.com/packs/">KEIL CMSIS-Packs</a>).</p>
 <p>Requires STM32Cube CMSIS-Pack for G030 target.</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Using Open-CMSIS-Pack csolutions: VSCode</h2>
 <p><em>Useful for group members</em></p>
 <p>As Keil Studio / Mbed Studio are both based (indirectly) off FOSS Code, there is a suite of extensions available for CMSIS csolution projects.</p>
 <p>These have been included here in the CMSIS.code-profile. This provides a visual studio code profile that will install the extensions required. Use VSCode if you want to make your life easier, else you can use the CMSIS-Toolbox via command line or scripts.</p>
 <p>VSCode tasks are provided for program/debug, though they likely will require modification as they are configured for debuggers other than a CMSIS-DAP.</p>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Code styling</h2>
 <p>Code style is enforced by Clang-Format (<a href="https://llvm.org/docs/CodingStandards.html#header-guard">LLVM Style</a>). All contributed code should follow this style.</p>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 PCB Schematic</h1>
 <p>See below for schematic:</p>
 <p><img src="schematic.jpg" alt="" height="712px" class="inline"/> </p>

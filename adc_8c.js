@@ -9,6 +9,6 @@ var adc_8c =
     [ "ls_adc_running", "adc_8c.html#ae145400162188d3a65f774a846f5c639", null ],
     [ "ls_adc_start", "adc_8c.html#a3b2ad4e08b018bd4da28932fefc1a79a", null ],
     [ "ls_adc_stop", "adc_8c.html#a6e746288c3af1a54965475b2f4bebafb", null ],
-    [ "ls_adc_wait_for", "adc_8c.html#af81e4bb8cfbfeacdff990a6c66651a82", null ],
+    [ "ls_adc_wait_for", "adc_8c.html#a9576a41cd784c402187ac5764272773e", null ],
     [ "RANGE_DEF", "adc_8c.html#ae0508b2bcee43b2dcb53075c03e0e1ff", null ]
 ];

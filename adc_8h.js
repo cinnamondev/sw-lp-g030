@@ -8,5 +8,5 @@ var adc_8h =
     [ "ls_adc_running", "adc_8h.html#ae145400162188d3a65f774a846f5c639", null ],
     [ "ls_adc_start", "adc_8h.html#a3b2ad4e08b018bd4da28932fefc1a79a", null ],
     [ "ls_adc_stop", "adc_8h.html#a6e746288c3af1a54965475b2f4bebafb", null ],
-    [ "ls_adc_wait_for", "adc_8h.html#af81e4bb8cfbfeacdff990a6c66651a82", null ]
+    [ "ls_adc_wait_for", "adc_8h.html#a9576a41cd784c402187ac5764272773e", null ]
 ];
